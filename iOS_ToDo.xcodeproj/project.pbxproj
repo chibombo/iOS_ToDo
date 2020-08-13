@@ -16,6 +16,7 @@
 		BF505D6824E21BF40000CA90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF505D6624E21BF40000CA90 /* LaunchScreen.storyboard */; };
 		BF505D7324E21BF40000CA90 /* iOS_ToDoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF505D7224E21BF40000CA90 /* iOS_ToDoTests.swift */; };
 		BF505D7E24E21BF40000CA90 /* iOS_ToDoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF505D7D24E21BF40000CA90 /* iOS_ToDoUITests.swift */; };
+		BFD90F7224E4DA68005257BB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD90F7124E4DA68005257BB /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		BF505D7924E21BF40000CA90 /* iOS_ToDoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_ToDoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF505D7D24E21BF40000CA90 /* iOS_ToDoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ToDoUITests.swift; sourceTree = "<group>"; };
 		BF505D7F24E21BF40000CA90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFD90F7124E4DA68005257BB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				BF505D6624E21BF40000CA90 /* LaunchScreen.storyboard */,
 				BF505D6924E21BF40000CA90 /* Info.plist */,
 				BF505D6124E21BF20000CA90 /* iOS_ToDo.xcdatamodeld */,
+				BFD90F7124E4DA68005257BB /* DetailViewController.swift */,
 			);
 			path = iOS_ToDo;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 			files = (
 				BF505D5D24E21BF20000CA90 /* ViewController.swift in Sources */,
 				BF505D6324E21BF20000CA90 /* iOS_ToDo.xcdatamodeld in Sources */,
+				BFD90F7224E4DA68005257BB /* DetailViewController.swift in Sources */,
 				BF505D5924E21BF20000CA90 /* AppDelegate.swift in Sources */,
 				BF505D5B24E21BF20000CA90 /* SceneDelegate.swift in Sources */,
 			);

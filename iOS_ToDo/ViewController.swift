@@ -10,10 +10,16 @@ import UIKit
 import CoreData
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var arrString: [NSManagedObject] = []
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetch()
+//        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,9 +27,9 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
-
+    
     func insert(name: String) {
-//        arrString.append(name)
+        //        arrString.append(name)
         
         guard let appDelagate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -48,6 +54,52 @@ class ViewController: UIViewController {
         
     }
     
+    func fetch() {
+        
+        guard let appDelagate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelagate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
+        
+        do {
+            arrString = try managedContext.fetch(fetchRequest)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func delete(id: UUID) {
+        guard let appDelagate: AppDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelagate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id.uuidString)
+        
+        do {
+            let task = try managedContext.fetch(fetchRequest)
+            
+            guard let firstTask = task.first else {
+                return
+            }
+                
+            managedContext.delete(firstTask)
+            try managedContext.save()
+            
+            arrString.removeAll(where: {$0 == firstTask})
+                        
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    
     @IBAction func userTappedAdd(_ sender: Any) {
         print(#function)
         
@@ -64,7 +116,7 @@ class ViewController: UIViewController {
                                                         
                                                         guard let textField: UITextField = alert.textFields?.first,
                                                             let name: String = textField.text, !name.isEmpty else {
-                                                            return
+                                                                return
                                                         }
                                                         self.insert(name: name)
                                                         self.tableView.reloadData()
@@ -91,18 +143,26 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Basic", for: indexPath)
         //cell.textLabel?.text = arrString[indexPath.row]
+        let task = arrString[indexPath.row]
+        cell.textLabel?.text = task.value(forKey: "name") as? String
         return cell
-
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            arrString.remove(at: indexPath.row)
+//            arrString.remove(at: indexPath.row)
+            let task = arrString[indexPath.row]
+            delete(id: task.value(forKey: "id") as! UUID)
             tableView.reloadData()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     
 }
