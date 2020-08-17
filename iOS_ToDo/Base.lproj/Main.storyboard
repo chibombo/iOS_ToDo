@@ -130,6 +130,14 @@
                                     <action selector="userChangedValue:" destination="GHm-gy-PfI" eventType="valueChanged" id="Eda-oG-XGj"/>
                                 </connections>
                             </datePicker>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="agQ-Fk-xdj">
+                                <rect key="frame" x="0.0" y="45" width="320" height="6"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="5" id="Lso-ZX-0aN"/>
+                                </constraints>
+                                <color key="progressTintColor" red="0.0" green="0.38562281650000002" blue="0.80025501939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="trackTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -142,9 +150,11 @@
                             <constraint firstItem="ZpV-FC-LEx" firstAttribute="trailing" secondItem="1W8-4f-nc6" secondAttribute="trailing" constant="20" id="KZn-AB-Feg"/>
                             <constraint firstItem="rKK-Dz-e3v" firstAttribute="top" secondItem="ZpV-FC-LEx" secondAttribute="top" constant="23" id="Kvi-iw-iVh"/>
                             <constraint firstItem="loq-eq-qHI" firstAttribute="top" secondItem="rKK-Dz-e3v" secondAttribute="bottom" constant="12" id="Lpw-Zn-uOd"/>
+                            <constraint firstItem="agQ-Fk-xdj" firstAttribute="top" secondItem="ZpV-FC-LEx" secondAttribute="top" constant="1" id="PDd-2E-Ipn"/>
                             <constraint firstItem="b9Q-zn-EOu" firstAttribute="leading" secondItem="ZpV-FC-LEx" secondAttribute="leading" constant="20" id="Qpt-OG-iss"/>
                             <constraint firstItem="rKK-Dz-e3v" firstAttribute="leading" secondItem="ZpV-FC-LEx" secondAttribute="leading" constant="20" id="RXn-LT-ajh"/>
                             <constraint firstItem="ma4-wS-D4o" firstAttribute="leading" secondItem="ZpV-FC-LEx" secondAttribute="leading" id="WLf-d6-nUP"/>
+                            <constraint firstAttribute="trailing" secondItem="agQ-Fk-xdj" secondAttribute="trailing" id="XCR-g2-JRI"/>
                             <constraint firstItem="ZpV-FC-LEx" firstAttribute="trailing" secondItem="loq-eq-qHI" secondAttribute="trailing" constant="20" id="Zoz-Yt-tre"/>
                             <constraint firstItem="iml-SD-rtm" firstAttribute="leading" secondItem="ZpV-FC-LEx" secondAttribute="leading" constant="20" id="f6Z-1m-Y1C"/>
                             <constraint firstItem="loq-eq-qHI" firstAttribute="leading" secondItem="ZpV-FC-LEx" secondAttribute="leading" constant="20" id="fQa-cf-eep"/>
@@ -153,6 +163,7 @@
                             <constraint firstItem="7iq-Fi-L5T" firstAttribute="leading" secondItem="ZpV-FC-LEx" secondAttribute="leading" constant="20" id="irw-Et-0jr"/>
                             <constraint firstItem="1W8-4f-nc6" firstAttribute="leading" secondItem="ZpV-FC-LEx" secondAttribute="leading" constant="20" id="mCV-bx-1KV"/>
                             <constraint firstItem="ZpV-FC-LEx" firstAttribute="trailing" secondItem="iml-SD-rtm" secondAttribute="trailing" constant="20" id="mNd-My-Co8"/>
+                            <constraint firstItem="agQ-Fk-xdj" firstAttribute="leading" secondItem="Y98-pi-NuB" secondAttribute="leading" id="rhJ-bZ-evj"/>
                             <constraint firstItem="ZpV-FC-LEx" firstAttribute="trailing" secondItem="b9Q-zn-EOu" secondAttribute="trailing" constant="20" id="woq-Hc-dYC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZpV-FC-LEx"/>
@@ -161,6 +172,7 @@
                     <connections>
                         <outlet property="btnSave" destination="1W8-4f-nc6" id="gSD-az-Nt6"/>
                         <outlet property="datePicker" destination="ma4-wS-D4o" id="PiJ-l8-cBS"/>
+                        <outlet property="progressView" destination="agQ-Fk-xdj" id="xai-Lo-QrI"/>
                         <outlet property="tfDetail" destination="b9Q-zn-EOu" id="Tqm-CB-QWr"/>
                         <outlet property="tfTitle" destination="loq-eq-qHI" id="9Qu-vk-gxv"/>
                     </connections>

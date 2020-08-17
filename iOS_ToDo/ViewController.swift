@@ -15,10 +15,12 @@ class ViewController: UIViewController {
     
     var arrString: [NSManagedObject] = []
     
+    var taskSelected: NSManagedObject?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetch()
-//        tableView.reloadData()
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -26,6 +28,18 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let task: NSManagedObject = taskSelected, let identifier: String = segue.identifier else {
+            return
+        }
+        
+        if identifier == "seeDetail" {
+            let destination: DetailViewController = segue.destination as! DetailViewController
+            destination.task = task
+        }
+        
     }
     
     func insert(name: String) {
@@ -162,7 +176,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        taskSelected = arrString[indexPath.row]
+        performSegue(withIdentifier: "seeDetail", sender: nil)
     }
     
 }
