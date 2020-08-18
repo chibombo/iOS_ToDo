@@ -12,19 +12,28 @@ import CoreData
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var lblTaskCount: UILabel!
     
-    var arrString: [NSManagedObject] = []
+    var arrString: [NSManagedObject] = [] {
+        didSet {
+           self.lblTaskCount.text = "\(self.arrString.count)"
+        }
+    }
     
     var taskSelected: NSManagedObject?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetch()
+//        lblTaskCount.text = "\(arrString.count)"
         tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(ToDoTableViewCell.nib,
+                           forCellReuseIdentifier: ToDoTableViewCell.identifer)
         tableView.delegate = self
         tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -133,6 +142,7 @@ class ViewController: UIViewController {
                                                                 return
                                                         }
                                                         self.insert(name: name)
+                                                        
                                                         self.tableView.reloadData()
         }
         
@@ -158,10 +168,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "Basic", for: indexPath)
+        let cell: ToDoTableViewCell = tableView.dequeueReusableCell(withIdentifier: ToDoTableViewCell.identifer, for: indexPath) as! ToDoTableViewCell
         //cell.textLabel?.text = arrString[indexPath.row]
         let task = arrString[indexPath.row]
-        cell.textLabel?.text = task.value(forKey: "name") as? String
+        let date: Date? = task.value(forKey: "date") as? Date
+        
+        
+        cell.lblTitle.text = task.value(forKey: "name") as? String
+        cell.lblDate.text = date?.description
+        cell.lblDescription.text = task.value(forKey: "detail") as? String
         return cell
         
     }
