@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8ML-l7-UAs">
-    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,17 +12,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOS_ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2V9-Wu-da5">
-                                <rect key="frame" x="0.0" y="123" width="320" height="445"/>
+                                <rect key="frame" x="0.0" y="167" width="414" height="695"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="egl-Zw-np0">
-                                <rect key="frame" x="16" y="55" width="288" height="60"/>
+                                <rect key="frame" x="16" y="99" width="382" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" red="0.0" green="0.38562281650000002" blue="0.80025501939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -42,6 +42,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="tOg-aI-lzP">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="link" catalog="system" landscapeImage="link" id="k6i-8b-ByY">
+                            <connections>
+                                <action selector="userTappedWebview:" destination="BYZ-38-t0r" id="eDc-gC-4OO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="z1L-nw-OY7">
                             <connections>
                                 <action selector="userTappedAdd:" destination="BYZ-38-t0r" id="8rM-kb-1y3"/>
@@ -52,6 +57,7 @@
                         <outlet property="lblTaskCount" destination="egl-Zw-np0" id="0Et-hp-zdR"/>
                         <outlet property="tableView" destination="2V9-Wu-da5" id="npJ-qT-dqV"/>
                         <segue destination="GHm-gy-PfI" kind="show" identifier="seeDetail" id="46i-lK-0kt"/>
+                        <segue destination="Im0-FW-yry" kind="show" identifier="seeWebView" id="bAh-MV-T9z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -62,8 +68,8 @@
         <scene sceneID="QeU-WS-jzy">
             <objects>
                 <viewController id="GHm-gy-PfI" customClass="DetailViewController" customModule="iOS_ToDo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Y98-pi-NuB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Y98-pi-NuB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="rKK-Dz-e3v">
@@ -174,13 +180,29 @@
             </objects>
             <point key="canvasLocation" x="1963.7681159420292" y="138.61607142857142"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="h5z-aP-0bE">
+            <objects>
+                <viewController id="Im0-FW-yry" customClass="WebViewController" customModule="iOS_ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nXO-DL-KOi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HJH-ga-hY1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9RW-nN-0y6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IjP-Ur-loH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1961.25" y="939.08450704225356"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="51k-R1-SPs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8ML-l7-UAs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7My-ge-WBT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -193,4 +215,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="link" catalog="system" width="128" height="116"/>
+    </resources>
 </document>

@@ -40,15 +40,19 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let task: NSManagedObject = taskSelected, let identifier: String = segue.identifier else {
-            return
+        if let identifier: String = segue.identifier {
+            if identifier == "seeDetail" {
+                
+                guard let task: NSManagedObject = taskSelected else {return}
+                
+                let destination: DetailViewController = segue.destination as! DetailViewController
+                
+                destination.task = task
+                
+            } else if identifier == "seeWebView" {
+                // Do something
+            }
         }
-        
-        if identifier == "seeDetail" {
-            let destination: DetailViewController = segue.destination as! DetailViewController
-            destination.task = task
-        }
-        
     }
     
     func insert(name: String) {
@@ -154,6 +158,10 @@ class ViewController: UIViewController {
         present(alert,
                 animated: true,
                 completion: nil)
+    }
+    
+    @IBAction func userTappedWebview(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "seeWebView", sender: nil)
     }
     
     
