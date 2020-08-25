@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3044DC24F49A5000B678E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3044DB24F49A5000B678E7 /* MapViewController.swift */; };
+		BF3044DF24F49F0000B678E7 /* CoreLocationWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3044DE24F49F0000B678E7 /* CoreLocationWorker.swift */; };
 		BF505D5924E21BF20000CA90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF505D5824E21BF20000CA90 /* AppDelegate.swift */; };
 		BF505D5B24E21BF20000CA90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF505D5A24E21BF20000CA90 /* SceneDelegate.swift */; };
 		BF505D5D24E21BF20000CA90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF505D5C24E21BF20000CA90 /* ViewController.swift */; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF3044DB24F49A5000B678E7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		BF3044DE24F49F0000B678E7 /* CoreLocationWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationWorker.swift; sourceTree = "<group>"; };
 		BF505D5524E21BF20000CA90 /* iOS_ToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_ToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF505D5824E21BF20000CA90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF505D5A24E21BF20000CA90 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3044DD24F49EDD00B678E7 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				BF3044DE24F49F0000B678E7 /* CoreLocationWorker.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
 		BF505D4C24E21BF20000CA90 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +119,7 @@
 		BF505D5724E21BF20000CA90 /* iOS_ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				BF3044DD24F49EDD00B678E7 /* Workers */,
 				BFA309B324EB57BC0022E602 /* UIComponents */,
 				BFA309B224EB575E0022E602 /* Support */,
 				BFA309B124EB57480022E602 /* Resources */,
@@ -141,6 +154,7 @@
 			children = (
 				BF505D5C24E21BF20000CA90 /* ViewController.swift */,
 				BFD90F7124E4DA68005257BB /* DetailViewController.swift */,
+				BF3044DB24F49A5000B678E7 /* MapViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -310,6 +324,8 @@
 				BFA309B624EB580C0022E602 /* ToDoTableViewCell.swift in Sources */,
 				BF505D5924E21BF20000CA90 /* AppDelegate.swift in Sources */,
 				BF505D5B24E21BF20000CA90 /* SceneDelegate.swift in Sources */,
+				BF3044DC24F49A5000B678E7 /* MapViewController.swift in Sources */,
+				BF3044DF24F49F0000B678E7 /* CoreLocationWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

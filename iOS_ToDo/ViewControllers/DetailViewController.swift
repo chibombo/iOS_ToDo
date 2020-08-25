@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var lblLocation: UILabel!
     
     
     var task: NSManagedObject!
@@ -92,5 +93,12 @@ class DetailViewController: UIViewController {
         isRunning = true
         
     }
+    
+    @IBAction func userTappedMap(_ sender: Any) {
+        print(#function)
+        performSegue(withIdentifier: "seeMap", sender: nil)
+        
+    }
+    
     
 }
